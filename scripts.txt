@@ -1,0 +1,94 @@
+create database delilah;
+use delilah;
+
+CREATE TABLE usuarios(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    usuario VARCHAR (45) NOT NULL UNIQUE,
+    password VARCHAR (100) NOT NULL,
+    nombre VARCHAR (45) NOT NULL,
+    apellido VARCHAR(45) NOT NULL, 
+    mail VARCHAR (45) NOT NULL UNIQUE,
+    telefono INT(11) NOT NULL,
+    direccion VARCHAR(80) NOT NULL,
+    es_administrador BIT (1) NOT NULL
+);
+
+CREATE TABLE pedidos(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idUsuarios INT NOT NULL,
+    idFormaDePago INT NOT NULL,
+    idEstado INT DEFAULT (1), 
+    precioTotal DECIMAL (9,2),
+    hora TIME ,
+    pagado BIT (1) DEFAULT (1)
+);
+
+CREATE TABLE productos(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(45) NOT NULL,
+    precio DECIMAL (7,2) NOT NULL,
+    urlFoto VARCHAR (250) NOT NULL,
+    en_stock BIT(1) NOT NULL
+);
+
+CREATE TABLE detalle_pedido(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL, 
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_total DECIMAL (7,2) NOT NULL
+);
+
+CREATE TABLE forma_de_pago(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE estados(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(45) NOT NULL
+);
+
+INSERT INTO usuarios (usuario, password, nombre, apellido, mail, telefono, direccion, es_administrador) VALUE ('Fer08', '$2b$10$liNDaoTqBJ7.mwsYlA1AS.8rbLswP8HmorLf7SKdrOHnWZIYP4fXS', 'fernanda', 'martinez', 'fermartinez@hotmail.com', 4568976, 'av.Colon 233', 1);
+INSERT INTO usuarios (usuario, password, nombre, apellido, mail, telefono, direccion, es_administrador) VALUE ('manuel04', 'contra', 'manuel', 'garcia', 'manuelgarcia@gmail.com', 47658694, 'estrada 45', 0);
+INSERT INTO usuarios (usuario, password, nombre, apellido, mail, telefono, direccion, es_administrador) VALUE ('rosario02', 'contra', 'rosario', 'aguirre', 'roaguirre@hotmail.com', 45565355, 'ituzaingo 56', 0);
+
+INSERT INTO productos (nombre, precio, urlFoto, en_stock) VALUE ('hamburguesa con queso', '250.00', 'https://www.google.com/search?q=hamburguesa&rlz=1C1GCEA_enAR897AR897&sxsrf', 1);
+INSERT INTO productos (nombre, precio, urlFoto, en_stock) VALUE ('coca 500 ml', '130.00', 'https://www.google.com/search?q=coca&rlz=1C1GCEA_enAR897AR897&sxsrf=ALeKk02Gz0BHxV5b4', 1);
+INSERT INTO productos (nombre, precio, urlFoto, en_stock) VALUE ('helado 2 bochas', '150.00', 'https://www.google.com/search?q=helado+de+dos+bochas&rlz=1C1GCEA_enAR897AR897&', 1);
+
+INSERT INTO forma_de_pago (descripcion) VALUES ('efectivo');
+INSERT INTO forma_de_pago (descripcion) VALUES ('credito');
+INSERT INTO forma_de_pago (descripcion) VALUES ('debito');
+
+INSERT INTO estados (descripcion) VALUES ('nuevo');
+INSERT INTO estados (descripcion) VALUES ('confirmado');
+INSERT INTO estados (descripcion) VALUES ('preparando');
+INSERT INTO estados (descripcion) VALUES ('enviando');
+INSERT INTO estados (descripcion) VALUES ('cancelado');
+INSERT INTO estados (descripcion) VALUES ('entregado');
+
+ALTER TABLE pedidos
+ADD CONSTRAINT FK_PEDIDOS_USUARIOS
+FOREIGN KEY (idUsuarios) REFERENCES usuarios(id);
+
+ALTER TABLE pedidos
+ADD CONSTRAINT FK_PEDIDOS_FORMA_DE_PAGO
+FOREIGN KEY (idFormaDePago) REFERENCES forma_de_pago(id);
+
+ALTER TABLE pedidos
+ADD CONSTRAINT FK_PEDIDOS_ESTADOS
+FOREIGN KEY (idEstado) REFERENCES estados(id);
+
+
+ALTER TABLE detalle_pedido
+ADD CONSTRAINT FK_DETALLE_PEDIDO_PEDIDO
+FOREIGN KEY (idPedido) REFERENCES pedidos(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE;
+
+ALTER TABLE detalle_pedido
+ADD CONSTRAINT FK_DETALLE_PEDIDO_PRODUCTO
+FOREIGN KEY (idProducto) REFERENCES productos(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE;

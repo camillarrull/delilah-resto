@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "7ca5d216-8dcf-45f1-8af4-4f3f92652be9",
+		"name": "delilah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "registrar nuevo usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"usuario\": \"Carla12\",\r\n\t\"password\": \"contra\",\r\n\t\"nombre\":\"carla\",\r\n\t\"apellido\":\"flores\",\r\n\t\"mail\":\"carlaflores@hotmail.com\",\r\n\t\"telefono\":\"43556465\",\r\n\t\"direccion\": \"bv san juan\",\r\n\t\"es_administrador\": 0\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login de usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"usuario\": \"Fer08\",\r\n\t\"password\": \"contra\"\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "trae los usuarios registrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6IkZlcjA4IiwicGFzc3dvcmQiOiIkMmIkMTAkbGlORGFvVHFCSjcubXdzWWxBMUFTLjhyYkxzd1A4SG1vckxmN1NLZHJPSG5XWklZUDRmWFMiLCJub21icmUiOiJmZXJuYW5kYSIsImFwZWxsaWRvIjoibWFydGluZXoiLCJtYWlsIjoiZmVybWFydGluZXpAaG90bWFpbC5jb20iLCJ0ZWxlZm9ubyI6NDU2ODk3NiwiZGlyZWNjaW9uIjoiYXYuQ29sb24gMjMzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTkwOTY0Nzk3fQ.2PM9RQW38eiBIfdUYDhOPablOUKvcsOzJ7OhcduM9qk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "crear productos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5MTM3OTc0fQ._iYR0nxJpaJgVLzE8uMvojNKk12YFu47r-GORgSHtCI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"licuado\",\n\t\"precio\": \"100\",\n\t\"urlFoto\": \"https://www.google.com/search?q=hamburguesa&rlz\",\n\t\"en_stock\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edita los productos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5MTQyMDExfQ.9zLV3qaQN8v5JkmKHHe5Pw2-oR_PN8xKl9ATOy8kE6o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Hamburguesa completa\",\n\t\"precio\": \"560\",\n\t\"urlFoto\": \"https://www.google.com/search?q=hamburguesa&rlz\",\n\t\"en_stock\": 1,\n\t\"id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "muestra los productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5MTQyMDExfQ.9zLV3qaQN8v5JkmKHHe5Pw2-oR_PN8xKl9ATOy8kE6o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "elimina producto de la base de datos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5NzI0Njk5fQ.epP1F6rCb1_JfnUBlP-ZUakK797x7gWZuIWA-R10Bq8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "muestra los platos favoritos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTkwMzU3MzYzfQ.Ifu2dvfAMRJ7HXoFmH__3N7AHTMP02NaqKA42aWf6nI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/productos/favoritos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"productos",
+								"favoritos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "pedidos",
+			"item": [
+				{
+					"name": "crea un pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXN1YXJpbyI6IkZlcjA4IiwicGFzc3dvcmQiOiIkMmIkMTAkbGlORGFvVHFCSjcubXdzWWxBMUFTLjhyYkxzd1A4SG1vckxmN1NLZHJPSG5XWklZUDRmWFMiLCJub21icmUiOiJmZXJuYW5kYSIsImFwZWxsaWRvIjoibWFydGluZXoiLCJtYWlsIjoiZmVybWFydGluZXpAaG90bWFpbC5jb20iLCJ0ZWxlZm9ubyI6NDU2ODk3NiwiZGlyZWNjaW9uIjoiYXYuQ29sb24gMjMzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTkwOTY0Nzk3fQ.2PM9RQW38eiBIfdUYDhOPablOUKvcsOzJ7OhcduM9qk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\"idFormaDePago\": 3,\r\n\t\"detalle\": [\r\n\t\t\t\t{\"idPlato\":1,\r\n\t\t\t\t\"cantidad\": 3\r\n\t\t\t\t},\r\n\t\t\t\t{\"idPlato\":2 ,\r\n\t\t\t\t\"cantidad\": 2\r\n\t\t\t\t},\r\n\t\t\t\t{\"idPlato\": 3,\r\n\t\t\t\t\"cantidad\": 5\r\n\t\t\t\t}\r\n\t\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "trae los pedidos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5NTU0MDA1fQ.uRUyZKbXRcQK44cwXGsg4Bn57cQvV2y1BAM6HqisgwI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELILAH",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5NzI0Njk5fQ.epP1F6rCb1_JfnUBlP-ZUakK797x7gWZuIWA-R10Bq8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPedido\": 2,\n\t\"idEstado\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"pedidos"
+							]
+						},
+						"description": "rutas para proyecto delilah"
+					},
+					"response": []
+				},
+				{
+					"name": "elimina pedidos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTg5NzI0Njk5fQ.epP1F6rCb1_JfnUBlP-ZUakK797x7gWZuIWA-R10Bq8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPedido\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "trae pedido por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzQsInVzdWFyaW8iOiJhbmFDbGFyYTE3IiwicGFzc3dvcmQiOiIkMmIkMTAkSVY3U0NoQW9wU2JXbDBoVEdQdFJRTzZBbFc2TzF2UDZOYzNBcTZXYVFDVVRLMjd1Z2ZoemkiLCJub21icmUiOiJhbmEiLCJhcGVsbGlkbyI6ImxsYXJydWxsIiwibWFpbCI6ImFuYWNsYXJhQGhvdG1haWwuY29tIiwidGVsZWZvbm8iOjQ2OTQxODcsImRpcmVjY2lvbiI6Im1hbmFudGlhbGVzIiwiZXNfYWRtaW5pc3RyYWRvciI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzFdfSwiaWF0IjoxNTkwMzU3MzYzfQ.Ifu2dvfAMRJ7HXoFmH__3N7AHTMP02NaqKA42aWf6nI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/pedidos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"pedidos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
